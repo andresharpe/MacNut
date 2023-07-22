@@ -12,9 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // docker run -d --name macnut-postgres -e POSTGRES_PASSWORD=mysecretpassword -e PGDATA=/var/lib/postgresql/data/pgdata -v macnut-data:/var/lib/postgresql/data -p 5432:5432 postgres
-builder.Services.AddDbContext<MacNutDbContext>(options =>
-    options.UseNpgsql("Host=localhost; Database=macnut; Username=postgres; Password=mysecretpassword;")
-);
+builder.Services.AddDbContext<MacNutDbContext>();
 
 var app = builder.Build();
 

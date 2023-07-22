@@ -4,20 +4,22 @@ namespace MacNut.Domain;
 
 public class Product
 {
-    public ProductCode Id { get; } 
-    public Text Name { get; }
-    public Text Manufacturer { get;  }
-    public Weight Weight { get; }
-    public Energy Energy { get; }
-    public WeightPortion Fats { get; }
-    public WeightPortion SaturatedFats { get; }
-    public WeightPortion Carbs { get; }
-    public WeightPortion Sugars { get; }
-    public WeightPortion Fibres { get; }
-    public WeightPortion Proteins { get; }
-    public WeightPortion Salts { get; }
+    public ProductCode Id { get; set; } = default!;
+    public Text Name { get; set; } = default!;  
+    public Text Manufacturer { get; set; } = default!;
+    public Weight Weight { get; set; } = default!;
+    public Energy Energy { get; set; } = default!;
+    public WeightPortion Fats { get; set; } = default!;
+    public WeightPortion SaturatedFats { get; set; } = default!;
+    public WeightPortion Carbs { get; set; } = default!;
+    public WeightPortion Sugars { get; set; } = default!;
+    public WeightPortion Fibres { get; set; } = default!;
+    public WeightPortion Proteins { get; set; } = default!;
+    public WeightPortion Salts { get; set; } = default!;
 
-    public IReadOnlyList<ProductCategory> Categories { get; }
+    public IReadOnlyList<ProductCategory> Categories { get; set; } = default!;
+
+    public Product() { }
 
     public Product(ProductCode id, Text name, Text manufacturer, Weight weight, Energy energy, WeightPortion fats, 
         WeightPortion saturatedFats, WeightPortion carbs, WeightPortion sugars, WeightPortion fibres, 

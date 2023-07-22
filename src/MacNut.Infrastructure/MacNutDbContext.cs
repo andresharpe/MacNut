@@ -1,5 +1,6 @@
 ﻿using MacNut.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace MacNut.Infrastructure;
 
@@ -15,6 +16,8 @@ public class MacNutDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
+
+        optionsBuilder.UseNpgsql("Host=localhost; Database=macnut; Username=postgres; Password=mysecretpassword;");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
