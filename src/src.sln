@@ -3,17 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacNut.Domain", "MacNut.Domain\MacNut.Domain.csproj", "{16637843-E09C-4249-96AD-88A5497364A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MacNut.Domain", "MacNut.Domain\MacNut.Domain.csproj", "{16637843-E09C-4249-96AD-88A5497364A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacNut.Domain.Tests", "..\tests\MacNut.Domain.Tests\MacNut.Domain.Tests.csproj", "{0ED48C20-D07F-4471-8DC5-3A35D885E01D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MacNut.Domain.Tests", "..\tests\MacNut.Domain.Tests\MacNut.Domain.Tests.csproj", "{0ED48C20-D07F-4471-8DC5-3A35D885E01D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacNut.Infrastructure", "MacNut.Infrastructure\MacNut.Infrastructure.csproj", "{EEA60E36-2B4C-43EC-AF2A-8FA74D8243B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacNut.Api", "MacNut.Api\MacNut.Api.csproj", "{29B33ED4-C41B-4848-A25D-BB36080E421D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{16637843-E09C-4249-96AD-88A5497364A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +25,19 @@ Global
 		{0ED48C20-D07F-4471-8DC5-3A35D885E01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ED48C20-D07F-4471-8DC5-3A35D885E01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ED48C20-D07F-4471-8DC5-3A35D885E01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEA60E36-2B4C-43EC-AF2A-8FA74D8243B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA60E36-2B4C-43EC-AF2A-8FA74D8243B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA60E36-2B4C-43EC-AF2A-8FA74D8243B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA60E36-2B4C-43EC-AF2A-8FA74D8243B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29B33ED4-C41B-4848-A25D-BB36080E421D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B33ED4-C41B-4848-A25D-BB36080E421D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B33ED4-C41B-4848-A25D-BB36080E421D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B33ED4-C41B-4848-A25D-BB36080E421D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BDD18FA-3640-42AE-B774-3DF80814497F}
 	EndGlobalSection
 EndGlobal

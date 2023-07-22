@@ -1,6 +1,6 @@
 ﻿using MacNut.Types;
 
-namespace MacNut.Domain.Entities.Recipe;
+namespace MacNut.Domain;
 
 public class Recipe
 {
