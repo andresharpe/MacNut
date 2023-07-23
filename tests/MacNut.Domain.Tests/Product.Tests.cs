@@ -12,10 +12,10 @@ public class ProductTests
     public void Construct_Product_Returns_Valid_Product()
     {
 
-        var categories = new List<ProductCategory>() {
-            new ProductCategory(100, "en:canned-black-beans"),
-            new ProductCategory(101, "en:canned-common-beans"),
-            new ProductCategory(102, "en:black-beans"),
+        var categories = new List<Category>() {
+            new Category("en:canned-black-beans"),
+            new Category("en:canned-common-beans"),
+            new Category("en:black-beans"),
         };
 
         var product = new Product

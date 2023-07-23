@@ -1,0 +1,39 @@
+﻿@page "/products"
+@inject MacNutDbContext dbContext
+@using MacNut.UI.Data
+
+<PageTitle>Products</PageTitle>
+
+<MudText Typo="Typo.h5">Products</MudText>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+<MudTable Items="@_products" Hover="true"
+          Breakpoint="Breakpoint.Sm"
+          Loading="@_loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Manufacturer</MudTh>
+        <MudTh>Proteins</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Name</MudTd>
+        <MudTd>@context.Manufacturer</MudTd>
+        <MudTd>@context.Proteins</MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    private IEnumerable<Product>? _products;
+
+    private bool _loading = false;
+
+    protected override void OnInitialized()
+    {
+        _loading = true;
+        _products = dbContext.Products;
+        _loading = false;
+    }
+}

@@ -1,18 +1,19 @@
 using MacNut.Domain;
 using MacNut.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MacNut.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ProductController : ControllerBase
+public class ProductsController : ControllerBase
 {
 
-    private readonly ILogger<ProductController> _logger;
+    private readonly ILogger<ProductsController> _logger;
     private readonly MacNutDbContext _dbContext;
 
-    public ProductController(ILogger<ProductController> logger, MacNutDbContext dbContext)
+    public ProductsController(ILogger<ProductsController> logger, MacNutDbContext dbContext)
     {
         _logger = logger;
         _dbContext = dbContext;
@@ -23,6 +24,6 @@ public class ProductController : ControllerBase
     {
         _logger.LogInformation("Woop!");
 
-        return _dbContext.Products;
+        return _dbContext.Products.Include("Categories");
     }
 }

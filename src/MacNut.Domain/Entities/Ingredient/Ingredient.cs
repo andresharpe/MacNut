@@ -8,11 +8,11 @@ public class Ingredient
 
     public Text Description { get; set; } = default!;
 
-    public ProductCategory ProductCategory { get; set; } = default!;
+    public Category ProductCategory { get; set; } = default!;
 
     public Weight Weight { get; set; } = default!;
     public Ingredient() { }
-    public Ingredient(int id, string description, ProductCategory category, Weight weight)
+    public Ingredient(int id, string description, Category category, Weight weight)
     {
         Id = id;
         Description = Text.From(description);

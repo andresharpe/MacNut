@@ -8,11 +8,11 @@ public class Recipe
 
     public Text Name { get; set; } = default!;
 
-    IReadOnlyList<Ingredient> Ingredients { get; set; } = default!;
+    public List<Ingredient> Ingredients { get; set; } = default!;
 
     public Recipe() { }
 
-    public Recipe(int id, string name, IReadOnlyList<Ingredient> ingredients)
+    public Recipe(int id, string name, List<Ingredient> ingredients)
     {
 
         Id = id;

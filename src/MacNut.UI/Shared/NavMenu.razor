@@ -1,0 +1,28 @@
+﻿﻿<MudDrawer @bind-Open="Parent.IsNavMenuOpen" ClipMode="DrawerClipMode.Always"
+            Elevation="2"
+            Variant="@DrawerVariant.Mini" OpenMiniOnHover="true">
+
+    <MudNavMenu>
+
+
+        <MudNavLink Href="/"
+                    Icon="@MudBlazor.Icons.Material.Rounded.Home" Match="NavLinkMatch.All">Home</MudNavLink>
+
+        <MudNavLink Href="/counter"
+                    Icon="@MudBlazor.Icons.Material.Rounded.Calculate" Match="NavLinkMatch.All">Counter</MudNavLink>
+
+        <MudNavLink Href="/fetchdata"
+                    Icon="@MudBlazor.Icons.Material.Rounded.DataExploration" Match="NavLinkMatch.All">Fetch Data</MudNavLink>
+
+        <MudNavLink Href="/products"
+                    Icon="@MudBlazor.Icons.Material.Rounded.FoodBank" Match="NavLinkMatch.All">Food Products</MudNavLink>
+
+    </MudNavMenu>
+
+</MudDrawer>
+
+@code
+{
+    [CascadingParameter]
+    private MainLayout Parent { get; set; } = null!;
+}

@@ -17,13 +17,13 @@ public class Product
     public WeightPortion Proteins { get; set; } = default!;
     public WeightPortion Salts { get; set; } = default!;
 
-    public IReadOnlyList<ProductCategory> Categories { get; set; } = default!;
+    public List<Category> Categories { get; set; } = default!;
 
     public Product() { }
 
     public Product(ProductCode id, Text name, Text manufacturer, Weight weight, Energy energy, WeightPortion fats, 
         WeightPortion saturatedFats, WeightPortion carbs, WeightPortion sugars, WeightPortion fibres, 
-        WeightPortion proteins, WeightPortion salts, IReadOnlyList<ProductCategory> categories)
+        WeightPortion proteins, WeightPortion salts, List<Category> categories)
     {
         Id = id;
         Name = name;
