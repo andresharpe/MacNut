@@ -17,8 +17,6 @@ public class MacNutDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        base.OnConfiguring(optionsBuilder);
-
         if (!optionsBuilder.IsConfigured)
         {
             var config = new ConfigurationBuilder()
@@ -29,6 +27,8 @@ public class MacNutDbContext : DbContext
 
             optionsBuilder.UseNpgsql(connectionString);
         }
+
+        base.OnConfiguring(optionsBuilder);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

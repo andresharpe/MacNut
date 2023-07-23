@@ -28,7 +28,7 @@ public sealed class Text : ValueObject<string, Text>
 
         if (!validationResult.IsValid)
         {
-            throw new TypeValidationException(validationResult.Errors);
+            throw new TypeValidationException(validationResult.Errors, typeof(Text), value!);
         }
 
         return newObject;

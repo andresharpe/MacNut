@@ -24,7 +24,7 @@ public abstract class ValueObject<T, TValueObject>
 
         if (!validationResult.IsValid)
         {
-            throw new TypeValidationException(validationResult.Errors);
+            throw new TypeValidationException(validationResult.Errors, typeof(TValueObject), value!);
         }
 
         return newObject;

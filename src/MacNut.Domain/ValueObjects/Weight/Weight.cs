@@ -39,7 +39,7 @@ public class Weight : ValueObject<float, Weight>
 
         if (!validationResult.IsValid)
         {
-            throw new TypeValidationException(validationResult.Errors);
+            throw new TypeValidationException(validationResult.Errors, typeof(Weight), value!);
         }
 
         return newObject;

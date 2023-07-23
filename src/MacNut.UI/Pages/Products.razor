@@ -15,25 +15,62 @@
         <MudTh>Id</MudTh>
         <MudTh>Name</MudTh>
         <MudTh>Manufacturer</MudTh>
-        <MudTh>Proteins</MudTh>
+        <MudTh>Categories</MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd>@context.Id</MudTd>
         <MudTd>@context.Name</MudTd>
         <MudTd>@context.Manufacturer</MudTd>
-        <MudTd>@context.Proteins</MudTd>
+        <MudTd>
+            @CategoryList(@context)
+        </MudTd>
     </RowTemplate>
 </MudTable>
 
 @code {
+
     private IEnumerable<Product>? _products;
 
     private bool _loading = false;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         _loading = true;
-        _products = dbContext.Products;
+
+        _products = await dbContext
+            .Products
+            .Include(p => p.Categories)
+            .ToListAsync();
+
         _loading = false;
+    }
+
+    private string CategoryList(Product product)
+    {
+        var sb = new StringBuilder();
+
+        var row = 1;
+        foreach(var c in product.Categories)
+        {
+            var part = c.Id.Value.Replace("en:", "");
+            var lCaps = true;
+            if (row++ > 1) sb.Append(", "); 
+            foreach(var chr in part)
+            {
+                switch (chr)
+                {
+                    case '-':
+                        sb.Append(' ');
+                        lCaps = true;
+                        break;
+
+                    default:
+                        sb.Append(lCaps ? char.ToUpper(chr) : chr);
+                        lCaps = false;
+                        break;
+                }
+            }
+        }
+        return sb.ToString();
     }
 }

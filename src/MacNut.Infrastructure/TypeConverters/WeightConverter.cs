@@ -5,5 +5,5 @@ namespace MacNut.Infrastructure;
 
 public class WeightConverter : ValueConverter<Weight, float>
 {
-    public WeightConverter() : base(weight => weight.Value, weightValue => Weight.From(weightValue)) { }
+    public WeightConverter() : base(weight => weight.Value, weightValue => Weight.FromDatabase(weightValue)) { }
 }

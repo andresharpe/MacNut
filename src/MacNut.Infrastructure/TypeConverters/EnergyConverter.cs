@@ -5,5 +5,5 @@ namespace MacNut.Infrastructure;
 
 public class EnergyConverter : ValueConverter<Energy, float>
 {
-    public EnergyConverter() : base(energy => energy.Value, energyValue => Energy.From(energyValue)) { }
+    public EnergyConverter() : base(energy => energy.Value, energyValue => Energy.FromDatabase(energyValue)) { }
 }

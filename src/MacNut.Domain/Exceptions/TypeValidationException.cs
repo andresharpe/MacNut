@@ -7,8 +7,8 @@ public class TypeValidationException : Exception
 
     public IReadOnlyList<ValidationFailure> Errors => _errors.ToList();
 
-    public TypeValidationException(IList<ValidationFailure> errors)
-    : base($"The type validation failed with {errors.Count} error(s).")
+    public TypeValidationException(IList<ValidationFailure> errors, Type type, object value)
+    : base($"Validation failed creating type [{type}] using value [{value}] ({errors.Count} error(s)).")
     {
         _errors = errors;
     }

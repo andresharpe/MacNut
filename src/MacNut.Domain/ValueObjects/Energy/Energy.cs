@@ -17,7 +17,7 @@ public class Energy : ValueObject<float,Energy>
 
         if (!validationResult.IsValid)
         {
-            throw new TypeValidationException(validationResult.Errors);
+            throw new TypeValidationException(validationResult.Errors, typeof(Energy), value!);
         }
 
         return newObject;
