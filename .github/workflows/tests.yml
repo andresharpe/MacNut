@@ -28,8 +28,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nuget
     - name: Restore dependencies
-      run: dotnet restore src/src.sln
+      run: dotnet restore src/MacNut.sln
     - name: Build
-      run: dotnet build --no-restore src/src.sln
+      run: dotnet build --no-restore src/MacNut.sln
     - name: Test
-      run: dotnet test --no-build --verbosity normal src/src.sln
+      run: dotnet test --no-build --verbosity normal src/MacNut.sln
