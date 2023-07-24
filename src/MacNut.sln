@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{15776D7F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{FB9CCDC3-C211-41D4-A26E-42CFFFFF608C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacNut.UI", "MacNut.UI\MacNut.UI.csproj", "{0E227786-F5B7-41C2-928B-FFDB3EE6CBC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MacNut.UI", "MacNut.UI\MacNut.UI.csproj", "{0E227786-F5B7-41C2-928B-FFDB3EE6CBC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
