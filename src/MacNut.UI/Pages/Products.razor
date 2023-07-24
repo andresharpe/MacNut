@@ -2,40 +2,55 @@
 @inject MacNutDbContext dbContext
 @using MacNut.UI.Data
 
-<PageTitle>Products</PageTitle>
+<PageTitle>Food Products</PageTitle>
 
 <MudText Typo="Typo.h5">Products</MudText>
 
-<p>This component demonstrates fetching data from a service.</p>
+<p>List of food products and their nutritional info.</p>
 
-<MudTable Items="@_products" Hover="true"
-          Breakpoint="Breakpoint.Sm"
-          Loading="@_loading" LoadingProgressColor="Color.Info">
-    <HeaderContent>
-        <MudTh>Id</MudTh>
-        <MudTh>Name</MudTh>
-        <MudTh>Manufacturer</MudTh>
-        <MudTh>Categories</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd>@context.Id</MudTd>
-        <MudTd>@context.Name</MudTd>
-        <MudTd>@context.Manufacturer</MudTd>
-        <MudTd>
-            @CategoryList(@context)
-        </MudTd>
-    </RowTemplate>
-</MudTable>
+@if (_products is null)
+{
+    <MudProgressLinear Color="Color.Secondary" Indeterminate="true" Class="my-7" />
+}
+else
+{
+    <div class="d-flex justify-end py-8">
+        <MudButton Href="/importProducts" Variant="Variant.Outlined" Color="Color.Primary">
+            Import from openfoodfacts.org
+        </MudButton>
+    </div>
 
-@code {
+    <MudTable Items="@_products" Hover="true"
+              Breakpoint="Breakpoint.Sm"
+              Loading="@_loading" LoadingProgressColor="Color.Info">
+        <HeaderContent>
+            <MudTh>Id</MudTh>
+            <MudTh>Name</MudTh>
+            <MudTh>Manufacturer</MudTh>
+            <MudTh>Categories</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Id</MudTd>
+            <MudTd>@context.Name</MudTd>
+            <MudTd>@context.Manufacturer</MudTd>
+            <MudTd>
+                @CategoryList(@context)
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+}
+
+    @code {
 
     private IEnumerable<Product>? _products;
 
-    private bool _loading = false;
+    [CascadingParameter] MudDialogInstance? MudDialog { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private bool _loading = true;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        _loading = true;
+        if (!firstRender) return;
 
         _products = await dbContext
             .Products
@@ -43,7 +58,14 @@
             .ToListAsync();
 
         _loading = false;
+
+        StateHasChanged();
     }
+
+    private void NavToProductImport()
+    {
+    }
+
 
     private string CategoryList(Product product)
     {
